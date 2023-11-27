@@ -1,0 +1,7 @@
+C:\Users\amose\OneDrive\Documents\Tafe Work\C Sharp Web\0 Ass 1\Assignment\bin\Debug\Assignment.exe.config
+C:\Users\amose\OneDrive\Documents\Tafe Work\C Sharp Web\0 Ass 1\Assignment\bin\Debug\Assignment.exe
+C:\Users\amose\OneDrive\Documents\Tafe Work\C Sharp Web\0 Ass 1\Assignment\bin\Debug\Assignment.pdb
+C:\Users\amose\OneDrive\Documents\Tafe Work\C Sharp Web\0 Ass 1\Assignment\obj\Debug\Assignment.csproj.AssemblyReference.cache
+C:\Users\amose\OneDrive\Documents\Tafe Work\C Sharp Web\0 Ass 1\Assignment\obj\Debug\Assignment.csproj.CoreCompileInputs.cache
+C:\Users\amose\OneDrive\Documents\Tafe Work\C Sharp Web\0 Ass 1\Assignment\obj\Debug\Assignment.exe
+C:\Users\amose\OneDrive\Documents\Tafe Work\C Sharp Web\0 Ass 1\Assignment\obj\Debug\Assignment.pdb
