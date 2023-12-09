@@ -21,11 +21,19 @@ namespace DoublyLinkedListDemo
             private set;
         }
 
+        /// <summary>
+        /// Add a new node to the head of the list via a value.
+        /// </summary>
+        /// <param name="value"></param>
         public void AddFirst(T value)
         {
             AddFirst(new DoublyLinkedListNode<T>(value));
         }
 
+        /// <summary>
+        /// Add a new node to the head of the list.
+        /// </summary>
+        /// <param name="node"></param>
         public void AddFirst(DoublyLinkedListNode<T> node)
         {
             DoublyLinkedListNode<T> temp = Head;
@@ -46,11 +54,19 @@ namespace DoublyLinkedListDemo
             Count++;
         }
 
+        /// <summary>
+        /// Adds a new node to the tail of the list via a value.
+        /// </summary>
+        /// <param name="value"></param>
         public void AddLast(T value)
         {
             AddLast(new DoublyLinkedListNode<T>(value));
         }
 
+        /// <summary>
+        /// Adds a new node to the tail of the list.
+        /// </summary>
+        /// <param name="node"></param>
         public void AddLast(DoublyLinkedListNode<T> node)
         {
             if (Count == 0)
@@ -68,6 +84,9 @@ namespace DoublyLinkedListDemo
             Count++;
         }
 
+        /// <summary>
+        /// Removes the head of the list.
+        /// </summary>
         public void RemoveFirst()
         {
             Head = Head.Next;
@@ -83,6 +102,9 @@ namespace DoublyLinkedListDemo
             }
         }
 
+        /// <summary>
+        /// Removes the tail of the list.
+        /// </summary>
         public void RemoveLast()
         {
             if (Count != 0)
@@ -108,11 +130,20 @@ namespace DoublyLinkedListDemo
             private set;
         }
 
+        /// <summary>
+        /// Adds a new node to the list.
+        /// </summary>
+        /// <param name="item"></param>
         public void Add(T item)
         {
             AddFirst(item);
         }
 
+        /// <summary>
+        /// Returns true if the list contains the specified item.
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
         public bool Contains(T item)
         {
             DoublyLinkedListNode<T> current = Head;
@@ -130,6 +161,11 @@ namespace DoublyLinkedListDemo
             return false;
         }
 
+        /// <summary>
+        /// Copies the list to a array of T, starting at a certain index.
+        /// </summary>
+        /// <param name="array"></param>
+        /// <param name="arrayIndex"></param>
         public void CopyTo(T[] array, int arrayIndex)
         {
             DoublyLinkedListNode<T> current = Head;
@@ -149,6 +185,11 @@ namespace DoublyLinkedListDemo
             }
         }
 
+        /// <summary>
+        /// Removes a node from the list.
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
         public bool Remove(T item)
         {
             DoublyLinkedListNode<T> previous = null;
@@ -188,6 +229,10 @@ namespace DoublyLinkedListDemo
             return false;
         }
 
+        /// <summary>
+        /// Enumerates over the list.
+        /// </summary>
+        /// <returns></returns>
         System.Collections.Generic.IEnumerator<T> System.Collections.Generic.IEnumerable<T>.GetEnumerator()
         {
             DoublyLinkedListNode<T> current = Head;
@@ -199,11 +244,18 @@ namespace DoublyLinkedListDemo
             }
         }
 
+        /// <summary>
+        /// Enumerates over the list.
+        /// </summary>
+        /// <returns></returns>
         System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
         {
             return ((System.Collections.Generic.IEnumerable<T>)this).GetEnumerator();
         }
 
+        /// <summary>
+        /// Clears the list.
+        /// </summary>
         public void Clear()
         {
             Head = null;

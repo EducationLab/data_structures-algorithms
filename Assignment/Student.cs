@@ -10,8 +10,10 @@ namespace Assignment
     {
         private static string DEF_PROGRAM = "No Program";
         private static DateTime DEF_DATE_REGISTERED = new DateTime(1940, 1, 1);
+        private static int DEF_STUDENT_ID;
 
         private string Program;
+        private int StudentID;
         private DateTime DateRegistered;
         private Enrollment Enrollment;
 
@@ -19,6 +21,11 @@ namespace Assignment
         {
             get { return Program; }
             set { Program = value; }
+        }
+        public int StudentStudentID
+        {
+            get { return StudentID; }
+            set { StudentID = value; }
         }
         public DateTime StudentDateRegistered
         {
@@ -31,24 +38,25 @@ namespace Assignment
             set { Enrollment = value; }
         }
 
-        public Student() : this(DEF_PROGRAM, DEF_DATE_REGISTERED)
+        public Student() : this(DEF_PROGRAM, DEF_STUDENT_ID, DEF_DATE_REGISTERED)
         {
 
         }
 
-        public Student(string program, DateTime dateRegistered) : this(program, dateRegistered, new Enrollment())
+        public Student(string program, int studentID, DateTime dateRegistered) : this(program, studentID, dateRegistered, new Enrollment())
         {
 
         }
 
-        public Student(string program, DateTime dateRegistered, Enrollment enrollment) : this(DEF_NAME, DEF_EMAIL, DEF_TELNUM, new Address(), program, dateRegistered, enrollment)
+        public Student(string program, int studentID, DateTime dateRegistered, Enrollment enrollment) : this(DEF_NAME, DEF_EMAIL, DEF_TELNUM, new Address(), program, studentID, dateRegistered, enrollment)
         {
             
         }
 
-        public Student(string name, string email, string telNum, Address address, string program, DateTime dateRegistered, Enrollment enrollment) : base(name, email, telNum, address)
+        public Student(string name, string email, string telNum, Address address, string program, int studentID, DateTime dateRegistered, Enrollment enrollment) : base(name, email, telNum, address)
         {
             this.Program = program;
+            this.StudentID = studentID;
             this.DateRegistered = dateRegistered;
             this.Enrollment = enrollment;
         }
@@ -56,6 +64,104 @@ namespace Assignment
         public override string ToString()
         {
             return this.Program + ", Date Registered: " + this.DateRegistered + "\n" + this.Enrollment;
+        }
+
+        public static bool operator ==(Student a, Student b)
+        {
+            return a.Equals(b);
+        }
+
+        public static bool operator !=(Student a, Student b)
+        {
+            return !(a.Equals(b));
+        }
+
+        /*public static bool operator <=(Student a, Student b)
+        {
+            bool status = false; ;
+
+            if (a.Enrollment.EnrollmentCourses.Length <= b.Enrollment.EnrollmentCourses.Length)
+                status = true;
+
+            return status;
+        }
+
+        public static bool operator >=(Student a, Student b)
+        {
+            bool status = false; ;
+
+            if (a.Enrollment.EnrollmentCourses.Length >= b.Enrollment.EnrollmentCourses.Length)
+                status = true;
+
+            return status;
+        }
+
+        public static bool operator <(Student a, Student b)
+        {
+            bool status = false; ;
+
+            if (a.Enrollment.EnrollmentCourses.Length < b.Enrollment.EnrollmentCourses.Length)
+                status = true;
+
+            return status;
+        }
+
+        public static bool operator >(Student a, Student b)
+        {
+            bool status = false; ;
+
+            if (a.Enrollment.EnrollmentCourses.Length > b.Enrollment.EnrollmentCourses.Length)
+                status = true;
+
+            return status;
+        }*/
+
+        public static bool operator <=(Student a, Student b)
+        {
+            bool status = false; ;
+
+            if (a.StudentID <= b.StudentID)
+                status = true;
+
+            return status;
+        }
+
+        public static bool operator >=(Student a, Student b)
+        {
+            bool status = false; ;
+
+            if (a.StudentID >= b.StudentID)
+                status = true;
+
+            return status;
+        }
+
+        public static bool operator <(Student a, Student b)
+        {
+            bool status = false; ;
+
+            if (a.StudentID < b.StudentID)
+                status = true;
+
+            return status;
+        }
+
+        public static bool operator >(Student a, Student b)
+        {
+            bool status = false; ;
+
+            if (a.StudentID > b.StudentID)
+                status = true;
+
+            return status;
+        }
+
+        public override int GetHashCode()
+        {
+            int hashedID = StudentID.GetHashCode();
+            // DateRegistered.GetHashCode();
+
+            return hashedID;
         }
     }
 }

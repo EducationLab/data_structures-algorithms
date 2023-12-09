@@ -6,14 +6,19 @@ using System.Threading.Tasks;
 
 namespace Assignment
 {
-    internal class BinaryTree<T>
+    internal class BinaryTree
     {
 
-        public BinaryTreeNode<T> Root { get; set; }
+        public BinaryTreeNode Root { get; set; }
 
-        public bool Add(T value)
+        /// <summary>
+        /// Add a new node to the binary tree.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public bool Add(int value)
         {
-            BinaryTreeNode<T> before = null, after = this.Root;
+            BinaryTreeNode before = null, after = this.Root;
 
             while (after != null)
             {
@@ -26,7 +31,7 @@ namespace Assignment
                     return false;
             }
 
-            BinaryTreeNode<T> newNode = new BinaryTreeNode<T>();
+            BinaryTreeNode newNode = new BinaryTreeNode();
             newNode.Data = value;
 
             if (this.Root == null)
@@ -42,12 +47,23 @@ namespace Assignment
             return true;
         }
 
-        public BinaryTreeNode<T> Find(T value)
+        /// <summary>
+        /// Returns the node of the criterion value, or null if it doesn't exist.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public BinaryTreeNode Find(int value)
         {
             return this.Find(value, this.Root);
         }
 
-        private BinaryTreeNode<T> Find(T value, BinaryTreeNode<T> parent)
+        /// <summary>
+        /// Returns the node of the criterion value, or null if it doesn't exist.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="parent"></param>
+        /// <returns></returns>
+        private BinaryTreeNode Find(int value, BinaryTreeNode parent)
         {
             if (parent != null)
             {
@@ -62,12 +78,22 @@ namespace Assignment
             return null;
         }
 
-        public void Remove(T value)
+        /// <summary>
+        /// Removes the node that equals the value given. Returns the removed node.
+        /// </summary>
+        /// <param name="value"></param>
+        public void Remove(int value)
         {
             this.Root = Remove(this.Root, value);
         }
 
-        private BinaryTreeNode<T> Remove(BinaryTreeNode<T> parent, T key)
+        /// <summary>
+        /// Removes the node that equals the value given. Returns the removed node.
+        /// </summary>
+        /// <param name="parent"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        private BinaryTreeNode Remove(BinaryTreeNode parent, int key)
         {
             if (parent == null)
                 return parent;
@@ -91,9 +117,14 @@ namespace Assignment
             return parent;
         }
 
-        private T MinValue(BinaryTreeNode<T> node)
+        /// <summary>
+        /// Finds the minimum value node in the tree.
+        /// </summary>
+        /// <param name="node"></param>
+        /// <returns></returns>
+        private int MinValue(BinaryTreeNode node)
         {
-            T minv = node.Data;
+            int minv = node.Data;
 
             while (node.LeftNode != null)
             {
@@ -104,7 +135,11 @@ namespace Assignment
             return minv;
         }
 
-        public void TraversePreOrder(BinaryTreeNode<T> parent)
+        /// <summary>
+        /// Prints the tree in full, starting with the root node, then left node, then right node.
+        /// </summary>
+        /// <param name="parent"></param>
+        public void TraversePreOrder(BinaryTreeNode parent)
         {
             if (parent != null)
             {
@@ -114,7 +149,11 @@ namespace Assignment
             }
         }
 
-        public void TraverseInOrder(BinaryTreeNode<T> parent)
+        /// <summary>
+        /// Prints the tree in full, starting with the lowest value.
+        /// </summary>
+        /// <param name="parent"></param>
+        public void TraverseInOrder(BinaryTreeNode parent)
         {
             if (parent != null)
             {
@@ -124,7 +163,11 @@ namespace Assignment
             }
         }
 
-        public void TraversePostOrder(BinaryTreeNode<T> parent)
+        /// <summary>
+        /// Prints the tree in full, starting with the lowest children nodes.
+        /// </summary>
+        /// <param name="parent"></param>
+        public void TraversePostOrder(BinaryTreeNode parent)
         {
             if (parent != null)
             {
@@ -132,6 +175,11 @@ namespace Assignment
                 TraversePreOrder(parent.RightNode);
                 Console.Write(parent.Data + " ");
             }
+        }
+
+        public int CompareTo(int other)
+        {
+            throw new NotImplementedException();
         }
     }
 }

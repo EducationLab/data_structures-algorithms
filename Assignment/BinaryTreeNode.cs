@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Assignment
 {
-    internal class BinaryTreeNode<T>
+    internal class BinaryTreeNode
     {
-        public BinaryTreeNode<T> LeftNode { get; set; }
-        public BinaryTreeNode<T> RightNode { get; set; }
-        public T Data { get; set; }
+        public BinaryTreeNode LeftNode { get; set; }
+        public BinaryTreeNode RightNode { get; set; }
+        public int Data { get; set; }
     }
 }
