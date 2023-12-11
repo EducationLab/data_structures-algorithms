@@ -10,7 +10,7 @@ namespace Assignment
     {
         private static string DEF_PROGRAM = "No Program";
         private static DateTime DEF_DATE_REGISTERED = new DateTime(1940, 1, 1);
-        private static int DEF_STUDENT_ID;
+        private static int DEF_STUDENT_ID = -1;
 
         private string Program;
         private int StudentID;
@@ -74,6 +74,11 @@ namespace Assignment
         public static bool operator !=(Student a, Student b)
         {
             return !(a.Equals(b));
+        }
+
+        public override bool Equals(object obj)
+        {
+            return this == (Student) obj;
         }
 
         /*public static bool operator <=(Student a, Student b)
