@@ -1,4 +1,5 @@
 ﻿using DoublyLinkedListDemo;
+using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,10 +25,19 @@ namespace Assignment
             Student s8 = s4;
             Student s9 = new Student();
 
-             int[] studentsByID = new int[10] { s0.StudentStudentID, s1.StudentStudentID, s2.StudentStudentID, s3.StudentStudentID, s4.StudentStudentID, s5.StudentStudentID, s6.StudentStudentID, s7.StudentStudentID, s8.StudentStudentID, s9.StudentStudentID };
-             Student[] students = new Student[10] { s0, s1, s2, s3, s4, s5, s6, s7, s8, s9 };
-            int index = Utility.SearchUnsorted(studentsByID, 15001692);
-            Console.WriteLine(index);
+            int[] studentsByID = new int[10] { s0.StudentStudentID, s1.StudentStudentID, s2.StudentStudentID, s3.StudentStudentID, s4.StudentStudentID, s5.StudentStudentID, s6.StudentStudentID, s7.StudentStudentID, s8.StudentStudentID, s9.StudentStudentID };
+            // int[] studentsByID = new int[10] { s0.StudentStudentID, s1.StudentStudentID, s2.StudentStudentID, s3.StudentStudentID, s4.StudentStudentID, s5.StudentStudentID, s6.StudentStudentID, s7.StudentStudentID, s8.StudentStudentID, s9.StudentStudentID };
+            // Student[] students = new Student[10] { s0, s1, s2, s3, s4, s5, s6, s7, s8, s9 };
+            //int index = Utility.SearchUnsorted(studentsByID, 15001692);
+            //Console.WriteLine(index);
+            //int index = Utility.SearchUnsorted(studentsByID, 15001692);
+            DoublyLinkedList<Student> linkedList = new DoublyLinkedList<Student>();
+            linkedList.Add(s3);
+            linkedList.Add(s2);
+            linkedList.Add(s4);
+            linkedList.RemoveLast();
+            bool found = linkedList.Contains(s3);
+            Console.WriteLine(found);
             Console.ReadKey();
 
 

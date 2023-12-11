@@ -78,7 +78,8 @@ namespace Assignment
 
         public override bool Equals(object obj)
         {
-            return this == (Student) obj;
+            var student = obj as Student;
+            return this.StudentID.Equals(student.StudentID);
         }
 
         /*public static bool operator <=(Student a, Student b)

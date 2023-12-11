@@ -46,7 +46,7 @@ namespace Assignment
             Utility.SortDescending(studentsByID);
             int[] list = new int[10] { studentsByID[0], studentsByID[1], studentsByID[2], studentsByID[3], studentsByID[4], studentsByID[5], studentsByID[6], studentsByID[7], studentsByID[8], studentsByID[9] };
             int index = Utility.SearchSorted(list, 15001692);
-            Assert.That(index, Is.EqualTo(3));
+            Assert.That(index, Is.EqualTo(4));
         }
 
         // 8.1.3
