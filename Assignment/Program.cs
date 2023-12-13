@@ -1,5 +1,4 @@
-﻿using DoublyLinkedListDemo;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,17 +26,18 @@ namespace Assignment
 
             int[] studentsByID = new int[10] { s0.StudentStudentID, s1.StudentStudentID, s2.StudentStudentID, s3.StudentStudentID, s4.StudentStudentID, s5.StudentStudentID, s6.StudentStudentID, s7.StudentStudentID, s8.StudentStudentID, s9.StudentStudentID };
             // int[] studentsByID = new int[10] { s0.StudentStudentID, s1.StudentStudentID, s2.StudentStudentID, s3.StudentStudentID, s4.StudentStudentID, s5.StudentStudentID, s6.StudentStudentID, s7.StudentStudentID, s8.StudentStudentID, s9.StudentStudentID };
-            // Student[] students = new Student[10] { s0, s1, s2, s3, s4, s5, s6, s7, s8, s9 };
+            Student[] students = new Student[10] { s0, s1, s2, s3, s4, s5, s6, s7, s8, s9 };
             //int index = Utility.SearchUnsorted(studentsByID, 15001692);
             //Console.WriteLine(index);
             //int index = Utility.SearchUnsorted(studentsByID, 15001692);
-            DoublyLinkedList<Student> linkedList = new DoublyLinkedList<Student>();
-            linkedList.Add(s3);
-            linkedList.Add(s2);
-            linkedList.Add(s4);
-            linkedList.RemoveLast();
-            bool found = linkedList.Contains(s3);
-            Console.WriteLine(found);
+            Array.Sort(students);
+            int[] list = new int[10] { students[0].StudentStudentID, students[1].StudentStudentID, students[2].StudentStudentID, students[3].StudentStudentID, students[4].StudentStudentID, students[5].StudentStudentID, students[6].StudentStudentID, students[7].StudentStudentID, students[8].StudentStudentID, students[9].StudentStudentID };
+            int index = Utility.SearchSorted(list, 15001692);
+            foreach (Student s in students)
+            {
+                Console.WriteLine(s);
+            }
+            Console.WriteLine(index);
             Console.ReadKey();
 
 

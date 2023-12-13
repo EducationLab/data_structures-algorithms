@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DoublyLinkedListDemo;
 using NUnit.Framework;
 
 namespace Assignment
@@ -26,7 +25,8 @@ namespace Assignment
         static int[] studentsByID = new int[10] { s0.StudentStudentID, s1.StudentStudentID, s2.StudentStudentID, s3.StudentStudentID, s4.StudentStudentID, s5.StudentStudentID, s6.StudentStudentID, s7.StudentStudentID, s8.StudentStudentID, s9.StudentStudentID };
         static Student[] students = new Student[10] { s0, s1, s2, s3, s4, s5, s6, s7, s8, s9 };
 
-        static DoublyLinkedList<Student> linkedList = new DoublyLinkedList<Student>();
+        static LinkedList<Student> linkedList = new LinkedList<Student>();
+        static DoublyLinkedList<Student> doubleLinkedList = new DoublyLinkedList<Student>();
 
         // Accomodated for changed Utility class (from generic to int)
 
@@ -42,11 +42,10 @@ namespace Assignment
         [Test]
         public void testBinarySearch()
         {
-            // Array.Sort(studentsByID); doesn't work; throws error Invalid Operation Exception
-            Utility.SortDescending(studentsByID);
-            int[] list = new int[10] { studentsByID[0], studentsByID[1], studentsByID[2], studentsByID[3], studentsByID[4], studentsByID[5], studentsByID[6], studentsByID[7], studentsByID[8], studentsByID[9] };
+            Array.Sort(students); 
+            int[] list = new int[10] { students[0].StudentStudentID, students[1].StudentStudentID, students[2].StudentStudentID, students[3].StudentStudentID, students[4].StudentStudentID, students[5].StudentStudentID, students[6].StudentStudentID, students[7].StudentStudentID, students[8].StudentStudentID, students[9].StudentStudentID };
             int index = Utility.SearchSorted(list, 15001692);
-            Assert.That(index, Is.EqualTo(4));
+            Assert.That(index, Is.EqualTo(5));
         }
 
         // 8.1.3
@@ -57,27 +56,25 @@ namespace Assignment
             Assert.That(newList[0], Is.EqualTo(-1));
         }
 
-        // Nowhere in the assignment does it say to add a single linked list, so I didn't do 8.2.1a - 8.2.1e
-
-        // 8.2.2a
+        // 8.2.1a
         [Test]
-        public void testAddHeadTolist()
+        public void testAddHeadToLinkedList()
         {
             linkedList.AddFirst(s3);
             Assert.That(linkedList.Head.Value, Is.EqualTo(s3));
         }
 
-        // 8.2.2b
+        // 8.2.1b
         [Test]
-        public void testAddTailToList()
+        public void testAddTailToLinkedList()
         {
             linkedList.AddLast(s3);
             Assert.That(linkedList.Tail.Value, Is.EqualTo(s3));
         }
 
-        // 8.2.2c
+        // 8.2.1c
         [Test]
-        public void testFind()
+        public void testFindList()
         {
             linkedList.Add(s3);
             linkedList.Add(s2);
@@ -86,9 +83,9 @@ namespace Assignment
             Assert.That(found, Is.True);
         }
 
-        // 8.2.2
+        // 8.2.1d
         [Test]
-        public void testRemoveFirst()
+        public void testRemoveFirstList()
         {
             linkedList.Add(s3);
             linkedList.Add(s2);
@@ -98,15 +95,66 @@ namespace Assignment
             Assert.That(found, Is.False);
         }
 
-        // 8.2.2e
+        // 8.2.1e
         [Test]
-        public void testRemoveLast()
+        public void testRemoveLastList()
         {
             linkedList.Add(s3);
             linkedList.Add(s2);
             linkedList.Add(s4);
             linkedList.RemoveLast();
             bool found = linkedList.Contains(s3);
+            Assert.That(found, Is.False);
+        }
+
+        // 8.2.2a
+        [Test]
+        public void testAddHeadToDoublelist()
+        {
+            doubleLinkedList.AddFirst(s3);
+            Assert.That(doubleLinkedList.Head.Value, Is.EqualTo(s3));
+        }
+
+        // 8.2.2b
+        [Test]
+        public void testAddTailToDoubleList()
+        {
+            doubleLinkedList.AddLast(s3);
+            Assert.That(doubleLinkedList.Tail.Value, Is.EqualTo(s3));
+        }
+
+        // 8.2.2c
+        [Test]
+        public void testFindDoubleList()
+        {
+            doubleLinkedList.Add(s3);
+            doubleLinkedList.Add(s2);
+            doubleLinkedList.Add(s4);
+            bool found = doubleLinkedList.Contains(s3);
+            Assert.That(found, Is.True);
+        }
+
+        // 8.2.2d
+        [Test]
+        public void testRemoveFirstDoubleList()
+        {
+            doubleLinkedList.Add(s3);
+            doubleLinkedList.Add(s2);
+            doubleLinkedList.AddFirst(s4);
+            doubleLinkedList.RemoveFirst();
+            bool found = doubleLinkedList.Contains(s4);
+            Assert.That(found, Is.False);
+        }
+
+        // 8.2.2e
+        [Test]
+        public void testRemoveLastDoubleList()
+        {
+            doubleLinkedList.Add(s3);
+            doubleLinkedList.Add(s2);
+            doubleLinkedList.Add(s4);
+            doubleLinkedList.RemoveLast();
+            bool found = doubleLinkedList.Contains(s3);
             Assert.That(found, Is.False);
         }
 

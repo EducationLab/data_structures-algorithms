@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace DoublyLinkedListDemo
+namespace Assignment
 {
     internal class DoublyLinkedList<T> : System.Collections.Generic.ICollection<T>
     {

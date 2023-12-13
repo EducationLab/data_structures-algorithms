@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assignment
 {
-    internal class Student : Person
+    internal class Student : Person, IComparable<Student>
     {
         private static string DEF_PROGRAM = "No Program";
         private static DateTime DEF_DATE_REGISTERED = new DateTime(1940, 1, 1);
@@ -63,7 +63,7 @@ namespace Assignment
 
         public override string ToString()
         {
-            return this.Program + ", Date Registered: " + this.DateRegistered + "\n" + this.Enrollment;
+            return "(" + this.StudentID + ") " + this.Program + ", Date Registered: " + this.DateRegistered + "\n" + this.Enrollment;
         }
 
         public static bool operator ==(Student a, Student b)
@@ -168,6 +168,11 @@ namespace Assignment
             // DateRegistered.GetHashCode();
 
             return hashedID;
+        }
+
+        public int CompareTo(Student other)
+        {
+            return this.Name.CompareTo(other.Name);
         }
     }
 }

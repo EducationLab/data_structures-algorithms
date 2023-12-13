@@ -60,6 +60,8 @@
     <Compile Include="DoublyLinkedList.cs" />
     <Compile Include="DoublyLinkedListNode.cs" />
     <Compile Include="Enrollment.cs" />
+    <Compile Include="LinkedList.cs" />
+    <Compile Include="LinkedListNode.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
